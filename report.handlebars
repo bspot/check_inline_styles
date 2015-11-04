@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+    <style>
+      body {
+        font-family: arial;
+      }
+
+      section {
+        margin-top: 100px;
+      }
+      section:nth-child(odd) {
+        background-color: #ddd;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    </style>
+</head>
+
+<body>
+
+{{#each pages}}
+
+  <section>
+    <h1><a href="{{page.url}}">{{page.url}}</a></h1>
+
+    {{#each occurences}}
+      <h2><a href="{{../page.url}}">{{../page.url}}</a>:{{line}}:{{column}}</h2>
+
+      <pre>
+      {{{fragment}}}
+      </pre>
+
+    {{/each}}
+  </section>
+
+
+{{/each}}
+
+
+</body>
+
+</html>
